@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Erro()
 {
     return (
-        <div>
+        <div className="conteudo">
             <h1>Erro</h1>
             <p>Parece que a página que você está procurando não está disponível. Isso pode ter acontecido por um link quebrado, um erro de digitação ou a página pode ter sido removida.</p>
             
