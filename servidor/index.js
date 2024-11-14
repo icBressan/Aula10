@@ -25,7 +25,7 @@ db.connect((erro) => {
 });
 
 //rota para cadastrar usuario
-app.post('/aluno', (req, res) => {
+app.post('/alunos', (req, res) => {
     const { nome, cidade, estado } = req.body; 
 
     const sql = 'INSERT INTO alunos (nome, cidade, estado) VALUES (?,?,?)';
@@ -36,6 +36,13 @@ app.post('/aluno', (req, res) => {
         }
         res.status(201).json({ message: 'Aluno cadastrado com sucesso!', id: result.insertId });
     });
+
+app.get('/alunos', (req, results) => {
+    if (err){
+        return res.status(500).json({ error: 'Erro ao consultar alunos'});
+    }
+    res.json(results);
+});
 });
 
 //iniciando o servidor
