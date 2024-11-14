@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Menu from "./Menu";
 
 import Home from "../Paginas/Home";
 import Cadastro from "../Paginas/Cadastro";
@@ -11,6 +12,7 @@ export default function Rotas()
 {
     return (
         <BrowserRouter>
+        <Menu />
             <Routes>
                 <Route path="/" element={ <Home /> } />
                 <Route path="/cadastro" element={ <Cadastro /> } />
