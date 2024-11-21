@@ -13,7 +13,7 @@ export default function Cadastro()
         {
             await axios.post('http://localhost:3001/alunos', { nome, cidade, estado });
 
-            setResultado("Alunos " + nome + " cadastrado com sucesso!");
+            setResultado("Aluno(a) " + nome + " cadastrado(a) com sucesso!");
             setNome("");
             setCidade("");
             setEstado("");
@@ -26,7 +26,7 @@ export default function Cadastro()
 
     return (
         <div>
-            <h1>Cadastro</h1>
+            <h1 align="center">Cadastro</h1>
         <form className="destaque">
           <p>
             Digite o nome do aluno <br />
