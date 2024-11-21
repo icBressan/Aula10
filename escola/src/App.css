@@ -35,3 +35,31 @@ header a + a {
   font-family: sans-serif;
   font-size: 20px;
 }
+
+.destaque
+{
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid black;
+  padding: 20px;
+  box-shadow: 0px 0px 10px black;
+}
+
+.destaque input[type=text]
+{
+  width: 90%;
+  padding: 10px;
+  border: 1px solid rgb (96,0,0);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.destaque .botao
+{
+  width: 150px;
+  padding: 10px;
+  color: rgb(96,0,0);
+  font-weight: bold;
+  font-size: 20px;
+}
