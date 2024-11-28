@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 
@@ -11,7 +11,7 @@ export default function Consulta()
     async function consultarAlunos() 
     {
         try{
-            const response = await axios.get('http://localhost:3000/alunos');
+            const response = await axios.get('http://localhost:3001/alunos');
             setAlunos(response.data);
         }
         catch (error){
@@ -26,17 +26,19 @@ export default function Consulta()
 
     function alterar(id)
     {
+        //alert("redirecioandno o codigo "+codigo")
         navigate("/alteracao/" + id);
     }
 
     function excluir(id)
     {
+        //alert("redirecioandno o codigo "+codigo")
         navigate("/exclusao/"+ id);
     }
 
     return (
         <div>
-            <h1 style={{textAlign:'center'}}>Consulta</h1>
+            <h1 style={{textAlign:'center'}}>Lista de Alunos</h1>
             <p>
                 tamanho: {alunos.length}
             </p>

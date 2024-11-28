@@ -24,7 +24,8 @@ db.connect((erro) => {
     }
 });
 
-//rota para cadastrar usuario
+
+// Rota para cadastrar usuário
 app.post('/alunos', (req, res) => {
     const { nome, cidade, estado } = req.body; 
 
@@ -32,20 +33,25 @@ app.post('/alunos', (req, res) => {
 
     db.query(sql, [nome, cidade, estado], (err, result) => {
         if (err){
-            return res.status(500).json({ error: 'Erro ao cadastrar aluno!'});
+            return res.status(500).json({ error: 'Erro ao cadastrar aluno!' });
         }
         res.status(201).json({ message: 'Aluno cadastrado com sucesso!', id: result.insertId });
     });
-
-app.get('/alunos', (req, results) => {
-    if (err){
-        return res.status(500).json({ error: 'Erro ao consultar alunos'});
-    }
-    res.json(results);
-});
 });
 
-//iniciando o servidor
+// Rota para consultar alunos
+app.get('/alunos', (req, res) => {
+    const sql = 'SELECT * FROM alunos'; // Verifique se a tabela 'alunos' realmente existe
+
+    db.query(sql, (err, results) => {
+        if (err){
+            return res.status(500).json({ error: 'Erro ao consultar alunos' });
+        }
+        res.json(results);
+    });
+});
+
+// Iniciando o servidor
 app.listen(PORT, () => {
-    console.log(`Servidor rodando em https://localhost:${PORT}`);
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
