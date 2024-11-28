@@ -7,6 +7,7 @@ export default function Consulta()
     const navigate = useNavigate();
     const [alunos, setAlunos] = useState([]);
 
+    // função buscar usuarios da api
     async function consultarAlunos() 
     {
         try{
@@ -18,6 +19,7 @@ export default function Consulta()
         }    
     };
 
+    //buscar usuario ao carregar o componente
     useEffect(() => {
         consultarAlunos();
     },[]);
@@ -34,7 +36,7 @@ export default function Consulta()
 
     return (
         <div>
-            <h1 align="center">Consulta</h1>
+            <h1 style={{textAlign:'center'}}>Consulta</h1>
             <p>
                 tamanho: {alunos.length}
             </p>
@@ -48,12 +50,16 @@ export default function Consulta()
                 </tr>
 
                 {alunos.map(
-                    (alunos, index) => (
+                    (aluno, index) => (
                         <tr>
-                            <td>{alunos.codigo}</td>
-                            <td>{alunos.nome}</td>
-                            <td>{alunos.cidade}</td>
-                            <td>{alunos.estado}</td>
+                            <td>{aluno.codigo}</td>
+                            <td>{aluno.nome}</td>
+                            <td>{aluno.cidade}</td>
+                            <td>{aluno.estado}</td>
+                            <td>
+                                <button typer='button' onClick={() => alterar(aluno.codigo)}>Alterar</button>
+                                <button typer='button' onClick={() => excluir(aluno.codigo)}>Excluir</button>
+                            </td>
                         </tr>
                     )
                 )}
