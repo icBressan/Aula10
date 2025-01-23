@@ -1,70 +1,60 @@
+// Consulta
 import { useEffect, useState } from 'react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export default function Consulta()
-{
+export default function Consulta() {
     const navigate = useNavigate();
     const [alunos, setAlunos] = useState([]);
 
-    // função buscar usuarios da api
-    async function consultarAlunos() 
-    {
-        try{
-            const response = await axios.get('http://localhost:3001/alunos');
-            setAlunos(response.data);
-        }
-        catch (error){
-            alert(error);
-        }    
-    };
-
-    //buscar usuario ao carregar o componente
     useEffect(() => {
+        async function consultarAlunos() {
+            try {
+                const response = await axios.get('http://localhost:3001/alunos');
+                setAlunos(response.data);
+            } catch {
+                alert('Erro ao consultar alunos!');
+            }
+        }
         consultarAlunos();
-    },[]);
+    }, []);
 
-    function alterar(id)
-    {
-        //alert("redirecioandno o codigo "+codigo")
-        navigate("/alteracao/" + id);
+    function alterar(codigo) {
+        navigate(`/alteracao/${codigo}`);
     }
 
-    function excluir(id)
-    {
-        //alert("redirecioandno o codigo "+codigo")
-        navigate("/exclusao/"+ id);
+    function excluir(codigo) {
+        navigate(`/exclusao/${codigo}`);
     }
 
     return (
         <div>
-            <h1 style={{textAlign:'center'}}>Lista de Alunos</h1>
-            <p>
-                tamanho: {alunos.length}
-            </p>
-            <table>
-                <tr> 
-                    <th> Codigo </th>
-                    <th> Nome </th>
-                    <th> Cidade </th>
-                    <th> Estado </th>
-                    <th> Opções </th>
-                </tr>
-
-                {alunos.map(
-                    (aluno, index) => (
-                        <tr>
+            <h1 align="center">Lista de Alunos</h1>
+            <h4 align="center">Total de alunos: {alunos.length}</h4>
+            <table className="tabela">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {alunos.map((aluno) => (
+                        <tr key={aluno.codigo}>
                             <td>{aluno.codigo}</td>
                             <td>{aluno.nome}</td>
                             <td>{aluno.cidade}</td>
                             <td>{aluno.estado}</td>
                             <td>
-                                <button typer='button' onClick={() => alterar(aluno.codigo)}>Alterar</button>
-                                <button typer='button' onClick={() => excluir(aluno.codigo)}>Excluir</button>
+                                <button className="botao" onClick={() => alterar(aluno.codigo)}>Alterar</button>
+                                <button className="botao" onClick={() => excluir(aluno.codigo)}>Excluir</button>
                             </td>
                         </tr>
-                    )
-                )}
+                    ))}
+                </tbody>
             </table>
         </div>
     );
