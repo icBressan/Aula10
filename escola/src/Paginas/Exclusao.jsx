@@ -1,74 +1,60 @@
-// Alteração de Aluno
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 
-export default function AlteracaoAluno() {
+export default function ExclusaoAluno() {
     const navigate = useNavigate();
     const { codigo } = useParams();
-    const [aluno, setAluno] = useState({
-        codigo: '',
-        nome: '',
-        cidade: '',
-        estado: ''
-    });
+    const [aluno, setAluno] = useState(null);
 
     useEffect(() => {
         async function buscarAluno() {
             try {
                 const response = await axios.get(`http://localhost:3001/alunos/${codigo}`);
                 setAluno(response.data);
-            } catch (error) {
+            } catch {
                 alert('Erro ao buscar aluno!');
-                navigate('/consulta');
+                navigate('/consulta'); 
             }
         }
-        buscarAluno();
-    }, [codigo, navigate]);
 
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setAluno(prevState => ({ ...prevState, [name]: value }));
-    }
+        if (!aluno) { 
+            buscarAluno();
+        }
+    }, [codigo, aluno, navigate]);
 
-    async function salvarAlteracao(e) {
-        e.preventDefault();
+    async function confirmarExclusao() {
         try {
-            await axios.put(`http://localhost:3001/alunos/${codigo}`, aluno);
-            alert('Aluno atualizado com sucesso!');
-            navigate('/consulta');
+            await axios.delete(`http://localhost:3001/alunos/${codigo}`);
+            alert('Aluno excluído com sucesso!');
+            navigate('/consulta'); 
         } catch {
-            alert('Erro ao atualizar aluno!');
+            alert('Erro ao excluir aluno!');
         }
     }
 
     function cancelar() {
-        navigate('/consulta');
+        navigate('/consulta'); 
     }
+
+    if (!aluno) return <div>Carregando...</div>; 
 
     return (
         <div>
-            <h1 align="center">Alteração de Aluno</h1>
-            <form onSubmit={salvarAlteracao} className="destaque">
+            <h1 align="center">Exclusão de Aluno</h1>
+            <form className="destaque">
+                <h3>Tem certeza que deseja excluir o aluno?</h3>
                 <p>
-                    Código: <br />
+                    <strong>Código:</strong> 
                     <input type="text" name="codigo" value={aluno.codigo} disabled />
                 </p>
                 <p>
-                    Nome: <br />
-                    <input type="text" name="nome" value={aluno.nome} onChange={handleChange} required />
-                </p>
-                <p>
-                    Cidade:<br />
-                    <input type="text" name="cidade" value={aluno.cidade} onChange={handleChange} required />
-                </p>
-                <p>
-                    Estado:<br />
-                    <input type="text" name="estado" value={aluno.estado} onChange={handleChange} required />
+                    <strong>Nome:</strong> 
+                    <input type="text" name="nome" value={aluno.nome} disabled />
                 </p>
                 <p className="botao-container">
-                    <button type="submit" className="botao">Salvar</button>
-                    <button type="button" className="botao" onClick={cancelar}>Cancelar</button>
+                    <button className="botao" type="button" onClick={confirmarExclusao}>Confirmar</button>
+                    <button className="botao" type="button" onClick={cancelar}>Cancelar</button>
                 </p>
             </form>
         </div>
