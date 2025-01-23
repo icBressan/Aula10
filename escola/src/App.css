@@ -1,77 +1,262 @@
-body{
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
   margin: 0;
   padding: 0;
 }
 
-header{
-  margin: 0;
-  padding: 0 20px;
-  width: 100;
-  height: 100px;
-  background-color: rgb(96, 0, 0);
-  color: white;
-
+header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-
-header a{
+  align-items: center;
+  padding: 0 60px;
+  height: 80px;
+  background-color: #620000;
   color: white;
-  font-size: 20px;
-  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header a:hover{
+header a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+header a:hover {
+  color: #ffb1ad;
   text-decoration: underline;
 }
 
 header a + a {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
-.conteudo{
-  margin: 10px;
-  font-family: sans-serif;
+h3 {
   font-size: 20px;
-}
-
-.destaque
-{
-  width: 500px;
-  margin: 20px auto;
-  border: 1px solid black;
-  padding: 20px;
-  box-shadow: 0px 0px 10px black;
-}
-
-.destaque input[type=text]
-{
-  width: 90%;
-  padding: 10px;
-  border: 1px solid rgb (96,0,0);
-  border-radius: 5px;
   margin-bottom: 10px;
-  font-size: 16px;
 }
 
-.destaque .botao
-{
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+ul {
+  margin: 10px 0 20px 20px;
+  padding: 0;
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+code {
+  background-color: #f1f1f1;
+  padding: 2px 4px;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 4px;
+}
+
+.conteudo {
+  margin: 20px auto;
+  max-width: 95%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.destaque {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(114, 0, 0, 0.644);
+}
+
+.destaque input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #620000;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.destaque input[type="text"]:focus {
+  border-color: #834f4f;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(143, 2, 0, 0.425);
+}
+
+.botao {
+  background-color: #620000;
+  color: white;
+  justify-content: center;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.botao:hover {
+  background-color: #c04343;
+}
+
+.botao-container {
+  display: flex; 
+  justify-content: center;
+}
+
+.destaque .botao {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  margin: 10px auto;
+  padding: 10px;
+  color: white;
+  background-color: #620000;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.destaque .botao:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.05);
+}
+
+/* Botões da tabela */
+table .botao-tabela {
+  padding: 8px 12px;
+  color: white;
+  background-color: #620000;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+table .botao-tabela:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.05);
+}
+
+table, th, td {
+  border: 1px solid #620000;
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: center;
+}
+
+table {
+  width: 100%; 
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+
+th {
+  background-color: #620000;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #f9f9f9;
+}
+
+table tr:nth-child(even) td {
+  background-color: #f4f4f9;
+}
+
+.pagina-alteracao, .pagina-exclusao {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.pagina-alteracao h1, .pagina-exclusao h1 {
+  font-size: 24px;
+  color: #620000;
+  margin-bottom: 20px;
+}
+
+.pagina-alteracao p, .pagina-exclusao p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.pagina-alteracao .botao, .pagina-exclusao .botao {
+  display: inline-block;
   width: 150px;
   padding: 10px;
-  color: rgb(96,0,0);
+  color: white;
+  background-color: #620000;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-table, th, td
-{
-  border: 1px solid rgb(96, 0, 0);
-  border-collapse: collapse;
-  padding: 10px;
+.pagina-alteracao .botao:hover, .pagina-exclusao .botao:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.05);
 }
 
-table
-{
-  margin: auto;
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    text-align: center;
+  }
+
+  header a + a {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .destaque {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  .conteudo {
+    font-size: 16px;
+  }
 }
