@@ -1,6 +1,6 @@
 # Projeto Escola com MySQL
 
-Este projeto foi desenvolvido durante o segundo semestre do primeiro período do curso de **Análise e Desenvolvimento de Sistemas**, como parte da disciplina de **Programação Web**. O sistema oferece um conjunto completo de funcionalidades para gestão de alunos, permitindo realizar o cadastro, consulta, alteração e exclusão de registros de alunos. Foi desenvolvido com o uso de **React.js** no frontend e **Node.js** com **Express** para o backend.
+Este projeto foi desenvolvido durante o segundo semestre do primeiro período do curso de **Análise e Desenvolvimento de Sistemas**, como parte da disciplina de **Programação Web**. O sistema oferece um conjunto de funcionalidades para gestão de alunos, permitindo realizar o cadastro, consulta, alteração e exclusão de registros de alunos. Foi desenvolvido com o uso de **React.js** no frontend e **Node.js** com **Express** para o backend.
 
 ## Funcionalidades
 
