@@ -1,8 +1,8 @@
-# Projeto Escola com MySQL
+# Projeto Escola com MySQL 📚
 
 Este projeto foi desenvolvido durante o segundo semestre do primeiro período do curso de **Análise e Desenvolvimento de Sistemas**, como parte da disciplina de **Programação Web**. O sistema oferece um conjunto de funcionalidades para gestão de alunos, permitindo realizar o cadastro, consulta, alteração e exclusão de registros de alunos. Foi desenvolvido com o uso de **React.js** no frontend e **Node.js** com **Express** para o backend.
 
-## Funcionalidades
+## 🔨 Funcionalidades
 
 O sistema oferece as seguintes funcionalidades:
 
@@ -14,7 +14,7 @@ O sistema oferece as seguintes funcionalidades:
 
 4. **Exclusão de Alunos**: Permite excluir um aluno do sistema após uma confirmação. A exclusão é realizada no backend e o aluno é removido permanentemente.
 
-## Tecnologias Utilizadas
+## 👾 Tecnologias Utilizadas
 
 - **Frontend**:
   - **React.js**: Biblioteca JavaScript para construção de interfaces de usuário dinâmicas.
@@ -27,7 +27,7 @@ O sistema oferece as seguintes funcionalidades:
   - **Express**: Framework web para construir a API RESTful do backend.
   - **MySQL**: Banco de dados relacional utilizado para armazenar os dados dos alunos.
 
-## Como Rodar o Projeto
+## 🛠️ Como Rodar o Projeto
 
 ### 1. Criando o Banco de Dados MySQL
 
